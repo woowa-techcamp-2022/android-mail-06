@@ -14,8 +14,8 @@
     <color name="blue">#5D75FF</color>
     <color name="skyblue">#5EEDFF</color>
     <color name="middle_yellow">#F8C93C</color>
-    <color name="item_title">#000000</color>
-    <color name="item_content">#787878</color>
-    <color name="btn_next">#000000</color>
-    <color name="btn_next_disabled">#7E7E7E</color>
+    <color name="item_title">#FFFFFF</color>
+    <color name="item_content">#B19898</color>
+    <color name="btn_next">#F8C93C</color>
+    <color name="btn_next_disabled">#5E4500</color>
 </resources>
