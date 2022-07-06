@@ -1,11 +1,11 @@
 package com.creativeduck.mailservice.presentation.viewmodel
 
+import android.util.Patterns
+import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.creativeduck.mailservice.R
 import dagger.hilt.android.lifecycle.HiltViewModel
-import java.util.regex.Pattern
 import javax.inject.Inject
 
 @HiltViewModel
@@ -17,11 +17,11 @@ class LoginViewModel @Inject constructor() : ViewModel() {
     private val _correctNickname = MutableLiveData<Boolean>()
     private val _correctEmail = MutableLiveData<Boolean>()
 
-    val nickname : LiveData<String> = _nickname
-    val email : LiveData<String> = _email
     val canNext : LiveData<Boolean> = _canNext
     val correctNickname : LiveData<Boolean> = _correctNickname
     val correctEmail : LiveData<Boolean> = _correctEmail
+    fun getRealNickname() : MutableLiveData<String> = _nickname
+    fun getRealEmail() : MutableLiveData<String> = _email
 
     init {
         _nickname.value = ""
@@ -30,6 +30,7 @@ class LoginViewModel @Inject constructor() : ViewModel() {
         _correctNickname.value = false
         _correctEmail.value = false
     }
+
 
     fun onNicknameTextChanged(s : CharSequence, start : Int, before : Int, count : Int) {
         _nickname.postValue(s.toString())
@@ -50,8 +51,9 @@ class LoginViewModel @Inject constructor() : ViewModel() {
     fun onEmailTextChanged(s : CharSequence, start : Int, before : Int, count : Int) {
         _email.postValue(s.toString())
         s.let {
-            val pattern : Pattern = Pattern.compile("^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+\$")
-            val matcher = pattern.matcher(s.toString())
+            Patterns.EMAIL_ADDRESS
+//            val pattern : Pattern = Pattern.compile("^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+\$")
+            val matcher = Patterns.EMAIL_ADDRESS.matcher(s.toString())
             _correctEmail.value = matcher.matches()
             _canNext.value = _correctNickname.value!! && _correctEmail.value!!
         }

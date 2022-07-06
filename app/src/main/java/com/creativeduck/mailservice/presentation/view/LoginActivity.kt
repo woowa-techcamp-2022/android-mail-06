@@ -44,11 +44,11 @@ class LoginActivity : AppCompatActivity() {
                 backgroundTintList = if (it) {
                     setOnClickListener(clickListener)
                     ColorStateList.valueOf(
-                        ContextCompat.getColor(this@LoginActivity, R.color.black))
+                        ContextCompat.getColor(this@LoginActivity, R.color.btn_next))
                 } else {
                     setOnClickListener(null)
                     ColorStateList.valueOf(
-                        ContextCompat.getColor(this@LoginActivity, R.color.gray))
+                        ContextCompat.getColor(this@LoginActivity, R.color.btn_next_disabled))
                 }
             }
         }
