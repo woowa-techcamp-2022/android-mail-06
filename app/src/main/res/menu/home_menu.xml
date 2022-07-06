@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_home_mail"
+        android:title="Mail"
+        android:icon="@drawable/ic_baseline_mail_outline_24"/>
+    <item
+        android:id="@+id/menu_home_setting"
+        android:title="Setting"
+        android:icon="@drawable/ic_outline_settings_24"/>
+</menu>
