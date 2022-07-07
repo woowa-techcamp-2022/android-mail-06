@@ -37,9 +37,8 @@ class SettingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.textSettingNickname.text = nickname
-        binding.textSettingEmail.text = email
-
+        binding.textSettingNickname.text = "Nickname = $nickname"
+        binding.textSettingEmail.text = "Email $email"
     }
 
 

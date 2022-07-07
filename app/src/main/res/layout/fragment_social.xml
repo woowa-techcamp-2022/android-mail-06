@@ -6,24 +6,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.view.MailFragment">
 
-    <TextView
-        android:id="@+id/text_mail_type"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_social_mail"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:padding="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:gravity="start"
-        android:padding="10dp" />
-
-    <FrameLayout
-        android:id="@+id/frame_mail"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_mail_type"
         app:layout_constraintBottom_toBottomOf="parent"/>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
