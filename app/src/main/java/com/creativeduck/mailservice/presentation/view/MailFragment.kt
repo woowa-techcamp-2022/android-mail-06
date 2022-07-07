@@ -38,7 +38,6 @@ class MailFragment : BaseFragment<FragmentMailBinding>(FragmentMailBinding::bind
             changeType(it)
         }
     }
-
     private fun changeType(mailType: Int) {
         // 선택된 메일 타입에 따라 프래그먼트 변경
         when (mailType) {

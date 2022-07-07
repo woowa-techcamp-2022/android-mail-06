@@ -25,5 +25,4 @@
         app:layout_constraintTop_toBottomOf="@+id/text_mail_type"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
