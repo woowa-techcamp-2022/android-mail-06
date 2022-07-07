@@ -133,7 +133,7 @@ class MainActivity : AppCompatActivity() {
                         "Setting" -> {
                             supportFragmentManager.beginTransaction()
                                 .replace(R.id.frame_home, settingFragment)
-//                                .addToBackStack("mail")
+
                                 .commit()
                         }
                         else -> {
