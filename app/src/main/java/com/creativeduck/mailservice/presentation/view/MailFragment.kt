@@ -6,6 +6,7 @@ import android.view.View
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.commit
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.creativeduck.mailservice.R
 import com.creativeduck.mailservice.adapter.MailListAdapter
@@ -40,22 +41,32 @@ class MailFragment : BaseFragment<FragmentMailBinding>(FragmentMailBinding::bind
         // 선택된 메일 타입에 따라 프래그먼트 변경
         when (mailType) {
             0 -> {
-                childFragmentManager.beginTransaction()
-                    .replace(R.id.frame_mail, primaryFragment)
-                    .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
-                    .commit()
+                childFragmentManager.apply {
+                    if (backStackEntryCount > 0) {
+                        popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                    }
+                    beginTransaction()
+                        .replace(R.id.frame_mail, primaryFragment)
+                        .setReorderingAllowed(true)
+                        .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
+                        .commit()
+                }
             }
             1 -> {
-                val transaction = childFragmentManager.beginTransaction()
+                childFragmentManager.beginTransaction()
                     .replace(R.id.frame_mail, socialFragment)
+                    .setReorderingAllowed(true)
                     .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
-                transaction.commit()
+                    .addToBackStack(null)
+                    .commit()
             }
             2 -> {
-                val transaction = childFragmentManager.beginTransaction()
+                childFragmentManager.beginTransaction()
                     .replace(R.id.frame_mail, promotionsFragment)
+                    .setReorderingAllowed(true)
                     .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
-                transaction.commit()
+                    .addToBackStack(null)
+                    .commit()
             }
         }
         binding.textMailType.text = when (mailType) {

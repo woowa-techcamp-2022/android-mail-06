@@ -14,12 +14,15 @@ import androidx.lifecycle.LifecycleOwner
 import com.creativeduck.mailservice.R
 import com.creativeduck.mailservice.databinding.ActivityMainBinding
 import com.creativeduck.mailservice.presentation.view.mails.PrimaryFragment
+import com.creativeduck.mailservice.presentation.view.mails.PromotionsFragment
+import com.creativeduck.mailservice.presentation.view.mails.SocialFragment
 import com.creativeduck.mailservice.presentation.viewmodel.MainViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.navigationrail.NavigationRailView
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -123,15 +126,14 @@ class MainActivity : AppCompatActivity() {
         }
         val f = supportFragmentManager.findFragmentById(R.id.frame_home)
         f?.let {
-            val childF = f.childFragmentManager.findFragmentById(R.id.frame_mail)
-            if (childF is PrimaryFragment) {
-                super.onBackPressed()
-                return
-            } else {
+            if (f.childFragmentManager.backStackEntryCount > 0) {
+                f.childFragmentManager.popBackStackImmediate(null, POP_BACK_STACK_INCLUSIVE)
                 binding.drawerHomeMenus.setCheckedItem(R.id.menu_home_primary)
                 mViewModel.changeMailType(0)
-                return
+            } else {
+                super.onBackPressed()
             }
+            return
         }
         super.onBackPressed()
     }
