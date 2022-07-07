@@ -49,25 +49,30 @@ class MailFragment : BaseFragment<FragmentMailBinding>(FragmentMailBinding::bind
                     .commit()
             }
             1 -> {
-                childFragmentManager.beginTransaction()
+                val transaction = childFragmentManager.beginTransaction()
                     .replace(R.id.frame_mail, socialFragment)
                     .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
-//                    .addToBackStack("mails")
-                    .commit()
+                if (childFragmentManager.backStackEntryCount > 0) {
+                    childFragmentManager.popBackStack()
+                }
+//                if (childFragmentManager.backStackEntryCount < 1) {
+//                    transaction.addToBackStack(null)
+//                }
+                transaction.addToBackStack(null)
+                transaction.commit()
             }
             2 -> {
-                childFragmentManager.beginTransaction()
+                val transaction = childFragmentManager.beginTransaction()
                     .replace(R.id.frame_mail, promotionsFragment)
                     .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
-//                    .addToBackStack("mails")
-                    .commit()
-            }
-            else -> {
-                childFragmentManager.beginTransaction()
-                    .replace(R.id.frame_mail, primaryFragment)
-                    .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
-//                    .addToBackStack("mails")
-                    .commit()
+                if (childFragmentManager.backStackEntryCount > 0) {
+                    childFragmentManager.popBackStack()
+                }
+//                if (childFragmentManager.backStackEntryCount < 1) {
+//                    transaction.addToBackStack(null)
+//                }
+                transaction.addToBackStack(null)
+                transaction.commit()
             }
         }
         binding.textMailType.text = when (mailType) {

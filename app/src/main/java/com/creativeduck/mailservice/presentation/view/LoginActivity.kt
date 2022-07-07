@@ -31,26 +31,12 @@ class LoginActivity : AppCompatActivity() {
             }
         setContentView(binding.root)
 
-        val clickListener = View.OnClickListener {
+        binding.btnLoginNext.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             intent.putExtra("nickname", binding.editLoginNickname.text.toString())
             intent.putExtra("email", binding.editLoginEmail.text.toString())
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
-        }
-
-        mViewModel.canNext.observe(this) {
-            binding.btnLoginNext.apply {
-                backgroundTintList = if (it) {
-                    setOnClickListener(clickListener)
-                    ColorStateList.valueOf(
-                        ContextCompat.getColor(this@LoginActivity, R.color.btn_next))
-                } else {
-                    setOnClickListener(null)
-                    ColorStateList.valueOf(
-                        ContextCompat.getColor(this@LoginActivity, R.color.btn_next_disabled))
-                }
-            }
         }
         mViewModel.correctNickname.observe(this) {
             binding.editLoginNicknameLayout.run {
