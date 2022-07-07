@@ -17,8 +17,9 @@
         <entry key="app/src/main/res/drawable-v24/ic_baseline_border_color_24.xml" value="0.1265" />
         <entry key="app/src/main/res/drawable-v24/ic_baseline_person_24.xml" value="0.13" />
         <entry key="app/src/main/res/layout-sw600dp/activity_main.xml" value="0.1168032786885246" />
+        <entry key="app/src/main/res/layout-w600dp/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.15489130434782608" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/edit_check_view.xml" value="0.11666666666666667" />
         <entry key="app/src/main/res/layout/fragment_mail.xml" value="0.17147922998986828" />
         <entry key="app/src/main/res/layout/fragment_primary.xml" value="0.17147922998986828" />

@@ -53,7 +53,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/nickname"
-                android:text="@={vm.realNickname}"
                 android:onTextChanged="@{vm.onNicknameTextChanged}"
                 />
         </com.google.android.material.textfield.TextInputLayout>
@@ -75,7 +74,6 @@
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:hint="@string/email"
-                android:text="@={vm.realEmail}"
                 android:onTextChanged="@{vm.onEmailTextChanged}"/>
         </com.google.android.material.textfield.TextInputLayout>
 
