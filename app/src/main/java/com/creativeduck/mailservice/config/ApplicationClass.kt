@@ -5,12 +5,4 @@ import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
 class ApplicationClass : Application() {
-
-    companion object {
-        lateinit var applicationClass : ApplicationClass
-
-        fun getInstance() : ApplicationClass {
-            return applicationClass
-        }
-    }
 }

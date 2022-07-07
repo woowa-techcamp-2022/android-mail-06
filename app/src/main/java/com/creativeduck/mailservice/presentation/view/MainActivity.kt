@@ -116,18 +116,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        // 백스택이 있다면, Setting Fragment 이므로 그거 제거하고 바로 교체하기
         if (supportFragmentManager.backStackEntryCount == 1) {
-            supportFragmentManager.popBackStackImmediate()
+            supportFragmentManager.popBackStack()
             setSelect(R.id.menu_home_mail)
             return
         }
-        // mail fragment 내부에서는, 백스택 social 과 promotions 는 백스택을 1개로 설정하고,
-        // 그거 바로 제거하기
         val f = supportFragmentManager.findFragmentById(R.id.frame_home)
         f?.let {
-            if (it.childFragmentManager.backStackEntryCount == 1) {
-                it.childFragmentManager.popBackStackImmediate()
+            val childF = f.childFragmentManager.findFragmentById(R.id.frame_mail)
+            if (childF is PrimaryFragment) {
+                super.onBackPressed()
+                return
+            } else {
                 binding.drawerHomeMenus.setCheckedItem(R.id.menu_home_primary)
                 mViewModel.changeMailType(0)
                 return

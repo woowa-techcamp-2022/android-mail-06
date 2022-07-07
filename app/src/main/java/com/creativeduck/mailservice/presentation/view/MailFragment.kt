@@ -21,8 +21,6 @@ import com.creativeduck.mailservice.util.VerticalSpaceDecoration
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
-private const val ARG_MAIL_TYPE = "mail_type"
-
 @AndroidEntryPoint
 class MailFragment : BaseFragment<FragmentMailBinding>(FragmentMailBinding::bind, R.layout.fragment_mail) {
 
@@ -45,33 +43,18 @@ class MailFragment : BaseFragment<FragmentMailBinding>(FragmentMailBinding::bind
                 childFragmentManager.beginTransaction()
                     .replace(R.id.frame_mail, primaryFragment)
                     .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
-//                    .addToBackStack("mails")
                     .commit()
             }
             1 -> {
                 val transaction = childFragmentManager.beginTransaction()
                     .replace(R.id.frame_mail, socialFragment)
                     .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
-                if (childFragmentManager.backStackEntryCount > 0) {
-                    childFragmentManager.popBackStack()
-                }
-//                if (childFragmentManager.backStackEntryCount < 1) {
-//                    transaction.addToBackStack(null)
-//                }
-                transaction.addToBackStack(null)
                 transaction.commit()
             }
             2 -> {
                 val transaction = childFragmentManager.beginTransaction()
                     .replace(R.id.frame_mail, promotionsFragment)
                     .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
-                if (childFragmentManager.backStackEntryCount > 0) {
-                    childFragmentManager.popBackStack()
-                }
-//                if (childFragmentManager.backStackEntryCount < 1) {
-//                    transaction.addToBackStack(null)
-//                }
-                transaction.addToBackStack(null)
                 transaction.commit()
             }
         }

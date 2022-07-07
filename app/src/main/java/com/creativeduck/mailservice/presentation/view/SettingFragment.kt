@@ -5,18 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.creativeduck.mailservice.R
+import com.creativeduck.mailservice.config.BaseFragment
 import com.creativeduck.mailservice.databinding.FragmentSettingBinding
 
 private const val ARG_NICKNAME = "nickname"
 private const val ARG_EMAIL = "email"
 
-class SettingFragment : Fragment() {
-    private var _binding : FragmentSettingBinding? = null
-    private val binding get() = _binding!!
+class SettingFragment : BaseFragment<FragmentSettingBinding>(FragmentSettingBinding::bind, R.layout.fragment_setting) {
 
     private var nickname: String? = null
     private var email: String? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,26 +25,11 @@ class SettingFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentSettingBinding.inflate(layoutInflater, container, false)
-        return binding.root
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.textSettingNickname.text = "Nickname = $nickname"
         binding.textSettingEmail.text = "Email = $email"
-    }
-
-
-
-    override fun onDestroyView() {
-        _binding = null
-        super.onDestroyView()
     }
 
     companion object {
