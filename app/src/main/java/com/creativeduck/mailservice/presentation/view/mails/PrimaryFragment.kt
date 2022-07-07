@@ -33,6 +33,4 @@ class PrimaryFragment : BaseFragment<FragmentPrimaryBinding>(FragmentPrimaryBind
         }
         mailListAdapter.submitList(dummy.filter { it.type == MailType.Primary.ordinal }.toList())
     }
-
-
 }

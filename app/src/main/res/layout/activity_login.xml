@@ -85,7 +85,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/guideline_end"
             android:text="@string/btn_login_next"
-            android:backgroundTint="@color/btn_next"/>
+            android:backgroundTint="@{(vm.correctNickname == true &amp;&amp; vm.correctEmail == true) ? @color/btn_next : @color/btn_next_disabled}"
+            android:clickable="@{(vm.correctNickname == true &amp;&amp; vm.correctEmail == true) ? true : false}"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 

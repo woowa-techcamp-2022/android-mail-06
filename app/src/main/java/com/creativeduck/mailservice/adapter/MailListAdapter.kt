@@ -38,16 +38,23 @@ class MailListAdapter : ListAdapter<WooWaMail, MailListAdapter.ViewHolder>(MailD
                     textMailFirst.visibility = View.VISIBLE
                     imgMailProfile.setImageResource(0)
                 }
+                val rnds = (0..4).random()
                 binding.root.context.apply {
-                    when(item.type) {
+                    when(rnds) {
                         0 -> {
-                            imgMailProfile.setBackgroundColor(getColor(R.color.green))
+                            imgMailProfile.setBackgroundColor(getColor(R.color.skyblue))
                         }
                         1 -> {
                             imgMailProfile.setBackgroundColor(getColor(R.color.blue))
                         }
                         2 -> {
                             imgMailProfile.setBackgroundColor(getColor(R.color.yellow))
+                        }
+                        3 -> {
+                            imgMailProfile.setBackgroundColor(getColor(R.color.green))
+                        }
+                        4 -> {
+                            imgMailProfile.setBackgroundColor(getColor(R.color.purple_200))
                         }
                     }
                 }
