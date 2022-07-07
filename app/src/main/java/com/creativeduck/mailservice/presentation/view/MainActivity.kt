@@ -127,7 +127,6 @@ class MainActivity : AppCompatActivity() {
         val f = supportFragmentManager.findFragmentById(R.id.frame_home)
         f?.let {
             if (f.childFragmentManager.backStackEntryCount > 0) {
-                f.childFragmentManager.popBackStackImmediate(null, POP_BACK_STACK_INCLUSIVE)
                 binding.drawerHomeMenus.setCheckedItem(R.id.menu_home_primary)
                 mViewModel.changeMailType(0)
             } else {

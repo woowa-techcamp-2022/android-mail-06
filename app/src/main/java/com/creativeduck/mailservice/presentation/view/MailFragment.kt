@@ -43,7 +43,8 @@ class MailFragment : BaseFragment<FragmentMailBinding>(FragmentMailBinding::bind
             0 -> {
                 childFragmentManager.apply {
                     if (backStackEntryCount > 0) {
-                        popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                        popBackStackImmediate(
+                            null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
                     }
                     beginTransaction()
                         .replace(R.id.frame_mail, primaryFragment)
