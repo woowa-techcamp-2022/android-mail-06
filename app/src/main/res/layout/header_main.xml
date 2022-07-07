@@ -7,7 +7,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="W mail"
+        android:text="@string/w_mail"
         android:textColor="@color/btn_next"
         android:textSize="50sp"/>
 

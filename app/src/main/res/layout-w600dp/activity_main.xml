@@ -28,7 +28,7 @@
             app:layout_constraintStart_toEndOf="@id/bottom_nav_home"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:title="W mail"
+            app:title="@string/w_mail"
             app:navigationIcon="@drawable/ic_baseline_table_rows_24"
             />
 
