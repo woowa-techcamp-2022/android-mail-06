@@ -38,7 +38,7 @@ class SettingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.textSettingNickname.text = "Nickname = $nickname"
-        binding.textSettingEmail.text = "Email $email"
+        binding.textSettingEmail.text = "Email = $email"
     }
 
 

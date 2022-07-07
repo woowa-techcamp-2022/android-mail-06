@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MailItemView">
+        <attr name="img_mail_profile" format="reference|integer"/>
+        <attr name="text_mail_first" format="reference|string"/>
+        <attr name="text_mail_from" format="reference|string"/>
+        <attr name="text_mail_title" format="reference|string"/>
+        <attr name="text_mail_content" format="reference|string"/>
+    </declare-styleable>
+</resources>
