@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="W mail"
-        android:textColor="@color/gray"
+        android:textColor="@color/btn_next"
         android:textSize="50sp"/>
 
 
