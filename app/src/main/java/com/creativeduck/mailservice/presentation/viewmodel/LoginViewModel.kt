@@ -11,8 +11,6 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor() : ViewModel() {
 
-    private val _nickname = MutableLiveData<String>()
-    private val _email = MutableLiveData<String>()
     private val _canNext = MutableLiveData<Boolean>()
     private val _correctNickname = MutableLiveData<Boolean>()
     private val _correctEmail = MutableLiveData<Boolean>()
@@ -20,20 +18,8 @@ class LoginViewModel @Inject constructor() : ViewModel() {
     val canNext : LiveData<Boolean> = _canNext
     val correctNickname : LiveData<Boolean> = _correctNickname
     val correctEmail : LiveData<Boolean> = _correctEmail
-    fun getRealNickname() : MutableLiveData<String> = _nickname
-    fun getRealEmail() : MutableLiveData<String> = _email
-
-    init {
-        _nickname.value = ""
-        _email.value = ""
-        _canNext.value = false
-        _correctNickname.value = false
-        _correctEmail.value = false
-    }
-
 
     fun onNicknameTextChanged(s : CharSequence, start : Int, before : Int, count : Int) {
-        _nickname.postValue(s.toString())
         s.let {
             var foundDigit = false
             var foundLetter = false
@@ -44,18 +30,17 @@ class LoginViewModel @Inject constructor() : ViewModel() {
                 else { foundOther = true }
             }
             _correctNickname.value = it.length in 4..12 && foundDigit && foundLetter && !foundOther
-            _canNext.value = _correctNickname.value!! && _correctEmail.value!!
+            _canNext.value = (_correctNickname.value ?: false) && (_correctEmail.value ?: false)
         }
     }
 
     fun onEmailTextChanged(s : CharSequence, start : Int, before : Int, count : Int) {
-        _email.postValue(s.toString())
         s.let {
             Patterns.EMAIL_ADDRESS
 //            val pattern : Pattern = Pattern.compile("^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+\$")
             val matcher = Patterns.EMAIL_ADDRESS.matcher(s.toString())
             _correctEmail.value = matcher.matches()
-            _canNext.value = _correctNickname.value!! && _correctEmail.value!!
+            _canNext.value = (_correctNickname.value ?: false) && (_correctEmail.value ?: false)
         }
     }
 
