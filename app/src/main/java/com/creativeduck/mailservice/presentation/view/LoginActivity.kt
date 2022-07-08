@@ -29,7 +29,6 @@ class LoginActivity : AppCompatActivity() {
                 vm = mViewModel
                 lifecycleOwner = this@LoginActivity
             }
-        setContentView(binding.root)
 
         binding.btnLoginNext.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)

@@ -7,7 +7,7 @@
     tools:context=".presentation.view.MailFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_primary_mail"
+        android:id="@+id/recycler_mail"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:padding="15dp"

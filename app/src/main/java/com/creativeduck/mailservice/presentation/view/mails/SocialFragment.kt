@@ -8,14 +8,14 @@ import com.creativeduck.mailservice.adapter.MailListAdapter
 import com.creativeduck.mailservice.adapter.MailType
 import com.creativeduck.mailservice.adapter.WooWaMail
 import com.creativeduck.mailservice.config.BaseFragment
-import com.creativeduck.mailservice.databinding.FragmentSocialBinding
+import com.creativeduck.mailservice.databinding.FragmentMailItemBinding
 import com.creativeduck.mailservice.util.VerticalSpaceDecoration
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class SocialFragment : BaseFragment<FragmentSocialBinding>(FragmentSocialBinding::bind, R.layout.fragment_social) {
+class SocialFragment : BaseFragment<FragmentMailItemBinding>(FragmentMailItemBinding::bind, R.layout.fragment_mail_item) {
 
     private lateinit var mailListAdapter: MailListAdapter
     @Inject
@@ -25,7 +25,7 @@ class SocialFragment : BaseFragment<FragmentSocialBinding>(FragmentSocialBinding
         super.onViewCreated(view, savedInstanceState)
 
         mailListAdapter = MailListAdapter()
-        binding.recyclerSocialMail.apply {
+        binding.recyclerMail.apply {
             adapter = mailListAdapter
             layoutManager = LinearLayoutManager(activity)
             itemAnimator = null
