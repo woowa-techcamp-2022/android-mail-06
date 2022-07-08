@@ -2,27 +2,15 @@ package com.creativeduck.mailservice.presentation.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.MenuItem
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.view.GravityCompat
-import androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE
-import androidx.fragment.app.FragmentTransaction
-import androidx.lifecycle.DefaultLifecycleObserver
-import androidx.lifecycle.LifecycleOwner
 import com.creativeduck.mailservice.R
 import com.creativeduck.mailservice.databinding.ActivityMainBinding
-import com.creativeduck.mailservice.presentation.view.mails.PrimaryFragment
-import com.creativeduck.mailservice.presentation.view.mails.PromotionsFragment
-import com.creativeduck.mailservice.presentation.view.mails.SocialFragment
 import com.creativeduck.mailservice.presentation.viewmodel.MainViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
-import com.google.android.material.navigation.NavigationView
 import com.google.android.material.navigationrail.NavigationRailView
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -88,6 +76,10 @@ class MainActivity : AppCompatActivity() {
             }
             binding.drawerLayout.closeDrawer(GravityCompat.START)
             mViewModel.changeMailType(mailType)
+            val f = supportFragmentManager.findFragmentById(R.id.frame_home)
+            if (f is SettingFragment) {
+                this.onBackPressed()
+            }
             true
         }
         val navItemSelectedListener = NavigationBarView.OnItemSelectedListener {

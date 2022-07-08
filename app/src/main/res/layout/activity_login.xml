@@ -54,6 +54,7 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/nickname"
                 android:onTextChanged="@{vm.onNicknameTextChanged}"
+                android:maxLines="1"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -74,7 +75,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:hint="@string/email"
-                android:onTextChanged="@{vm.onEmailTextChanged}"/>
+                android:onTextChanged="@{vm.onEmailTextChanged}"
+                android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
