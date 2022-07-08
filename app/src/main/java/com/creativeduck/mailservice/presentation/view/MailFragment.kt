@@ -1,7 +1,6 @@
 package com.creativeduck.mailservice.presentation.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
@@ -10,7 +9,6 @@ import com.creativeduck.mailservice.config.BaseFragment
 import com.creativeduck.mailservice.databinding.FragmentMailBinding
 import com.creativeduck.mailservice.presentation.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.*
 
 @AndroidEntryPoint
 class MailFragment : BaseFragment<FragmentMailBinding>(FragmentMailBinding::bind, R.layout.fragment_mail) {

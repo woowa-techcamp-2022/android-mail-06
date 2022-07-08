@@ -116,9 +116,8 @@ class MainActivity : AppCompatActivity() {
             setSelect(R.id.menu_home_mail)
             return
         }
-        val f = supportFragmentManager.findFragmentById(R.id.frame_home)
-        f?.let {
-            if (f.childFragmentManager.backStackEntryCount > 0) {
+        supportFragmentManager.findFragmentById(R.id.frame_home)?.let {
+            if (it.childFragmentManager.backStackEntryCount > 0) {
                 binding.drawerHomeMenus.setCheckedItem(R.id.menu_home_primary)
                 mViewModel.changeMailType(0)
             } else {
