@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        outState?.run {
+        outState.run {
             val itemId = if (binding.bottomNavHome is NavigationRailView) { (binding.bottomNavHome as NavigationRailView).selectedItemId }
             else { (binding.bottomNavHome as BottomNavigationView).selectedItemId }
             putInt(BOTTOM_MENU, itemId)
